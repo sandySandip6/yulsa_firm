@@ -1,0 +1,127 @@
+/* General Styling ---------------------------------------- Contact Section Top -------------------------------------> */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contact-page {
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.contact-header {
+    text-align: center;
+    padding: 20px;
+}
+
+.contact-header h1 {
+    font-size: 2.5rem;
+    color: #1abc9c;
+}
+
+.contact-header p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Contact Details and Form ---------------------------------------- Fontact Form ---------------------------------------------->*/
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.contact-details, .contact-form {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.contact-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-details ul li {
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.contact-details ul li span {
+    color: #1abc9c;
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.social-links a img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.contact-form form input, 
+.contact-form form textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #1abc9c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.contact-form form button:hover {
+    background-color: #159f7a;
+}
+
+/* Map Section ----------------------------------------Map Section --------------------------------------------------------> */
+.map-section {
+    margin: 40px 0;
+    text-align: center;
+}
+.map-section p{
+    color: red;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* FAQ Section ----------------------------------------FAQ's Section -------------------------------------------------------->*/
+.faq-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 40px 0;
+}
+
+.faq-section details {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.faq-section summary {
+    cursor: pointer;
+    color: #1abc9c;
+}
+
+.faq-section p {
+    margin: 10px 0;
+}

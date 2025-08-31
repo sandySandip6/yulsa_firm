@@ -1,0 +1,111 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.image-slideshow {
+  position: relative;
+}
+
+/* Ensure slide container works properly */
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 575px;
+  overflow: hidden;
+}
+
+/* Slide styling */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 1s ease-in-out; /* Smooth fade transition */
+  z-index: 0;
+}
+
+.slide.active {
+  opacity: 1; /* Visible slide */
+  z-index: 1; /* Bring to the front */
+}
+
+/* Image styling */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1; /* Overlay on top of image */
+  pointer-events: none; /* Allows interactions to pass through */
+}
+
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2; /* On top of the dark overlay */
+}
+
+.text-overlay h1 {
+  font-size: 2.5rem; /* Adjust font size */
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.text-overlay p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+/* Responsive CTA Button */
+.text-overlay .cta-button {
+  background-color: #000d1c;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 30px;
+  transition: background-color 0.3s ease-in-out;
+  border: solid #08fdd7;
+  display: inline-block; /* Ensures proper alignment */
+}
+
+.text-overlay .cta-button:hover {
+  background-color: #e63e15;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .text-overlay h1 {
+    font-size: 1.8rem;
+  }
+
+  .text-overlay p {
+    font-size: 1rem;
+  }
+
+  .text-overlay .cta-button {
+    padding: 0.6rem 1.2rem; /* Adjust padding */
+    font-size: 0.9rem; /* Slightly smaller font */
+  }
+}
+
+@media (max-width: 480px) {
+  .text-overlay .cta-button {
+    padding: 0.5rem 1rem; /* Further reduce padding */
+    font-size: 0.8rem; /* Smaller font for small screens */
+  }
+}

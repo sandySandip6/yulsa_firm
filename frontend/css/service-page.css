@@ -1,0 +1,320 @@
+/* Service Section Styling ---------------------------------------- Servives Section Top ------------------------------------->*/
+.service-details {
+    background-color: #f8f8f8;
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .service-details h2 {
+    font-size: 2.5rem;
+    color: #1abc9c;
+    margin-bottom: 10px;
+  }
+  
+  .service-details p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .service-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .icon-container img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+  }
+  
+  .service-card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .service-card p {
+    font-size: 0.95rem;
+    color: #777;
+    line-height: 1.5;
+  }
+  
+  /* Animation Styling */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .service-card {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+ /* General Section Styling  --------------------------- Servives Section about -------------------------------------> */
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  background: linear-gradient(135deg, #eef2f7, #d9e4ec);
+  flex-wrap: wrap; /* Ensures responsiveness for smaller screens */
+  gap: 30px;
+  border-radius: 10px;
+}
+
+/* Title Styling */
+.title {
+  font-size: 2.2rem;
+  color: #ffffff;
+  text-align: center;
+  margin: -50px auto 20px auto;
+  line-height: 1.4;
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  background: linear-gradient(to right, #81728b, #4b495b);
+  border-radius: 30px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  max-width: 1080px;
+}
+
+/* Content Styling */
+.about-content {
+  flex: 1;
+  max-width: 48%;
+  padding: 25px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.about-content h2 {
+  font-size: 2rem;
+  color: #ffff58;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 15px;
+}
+
+.title-underline {
+  width: 80px;
+  height: 4px;
+  background-color: #1abc9c;
+  margin: 15px 0 25px;
+  border-radius: 2px;
+}
+
+.about-content p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #666666;
+  line-height: 1.8;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Image Styling ---------------------------------------- Servives Section Image ----------------------------------------------->*/
+.about-image {
+  flex: 1;
+  max-width: 48%;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+
+  /* Industries section ---------------------------------------- Industries Section  ------------------------------------->*/ 
+.industries-section {
+  padding: 50px 20px;
+  background: linear-gradient(to bottom right, #e6f7ff, #ffffff);
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #004d40;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.industries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.industry-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.industry-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+  font-size: 3rem;
+  color: #00897b;
+  margin-bottom: 15px;
+}
+
+.industry-card h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0;
+}
+
+.industry-card {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* ---------------------------------------- Software we Use Section -----------------------------------------------------------> */
+.software-container {
+  padding: 50px 20px;
+  background-color: #e2ffcb;
+  text-align: center;
+}
+
+.software-header h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.software-header p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Software Grid */
+.software-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.software-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.software-item p {
+  font-size: 16px;
+  font-weight: bold;
+  color: teal;
+  margin-bottom: 10px;
+}
+
+.software-item img {
+  width: 80px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.software-item img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*---------------------------------------- Responsive Section  -------------------------------------------------------------->*/
+
+@media (max-width: 768px) {
+  .industries-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+  
+  /* Responsive Styles for Mobile Devices */
+  @media (max-width: 768px) {
+    .about-section {
+      flex-direction: column; /* Stacks elements vertically */
+      padding: 20px;
+      text-align: center;
+    }
+  
+    .about-content {
+      max-width: 100%;
+      padding: 0;
+    }
+  
+    .about-content h2 {
+      text-align: center; /* Center title in mobile view */
+      font-size: 2rem; /* Adjust font size for smaller screens */
+      margin-top: 0;
+    }
+  
+    .title-underline {
+      margin: 0 auto 20px auto; /* Center the underline */
+    }
+  
+    .about-image {
+      max-width: 100%;
+      margin-bottom: 20px; /* Adds spacing between image and content */
+    }
+  
+    .about-image img {
+      margin: 0; /* Remove extra top margin for mobile */
+      max-width: 100%; /* Ensure image scales correctly */
+    }
+  }
