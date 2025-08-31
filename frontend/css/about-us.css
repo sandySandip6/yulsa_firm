@@ -1,0 +1,367 @@
+/* About Us Section --------------------------------------------------------About Section----------------------------------->*/
+.about-us {
+  background: linear-gradient(135deg, #f0f4f8, #e8eff7);
+  padding: 70px 30px;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-image {
+  flex: 1 1 40%;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.about-content {
+  flex: 1 1 50%;
+  background-color: #ffffff;
+  padding: 25px 33px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.about-content h2 {
+  font-size: 2.8rem;
+  color: #0066cc; /* A vibrant blue for headings */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.about-content p {
+  font-size: 1.2rem;
+  color: #333333; /* A darker gray for better readability */
+  line-height: 1.35;
+  margin-bottom: 25px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.about-content ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 25px;
+}
+
+.about-content ul li {
+  font-size: 1.2rem;
+  color: #444444;
+  margin-bottom: 12px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.about-content ul li strong {
+  color: #0066cc;
+}
+
+.title-underline {
+  width: 60px;
+  height: 4px;
+  background-color: #0066cc;
+  margin: 10px 0 25px;
+  border-radius: 2px;
+}
+
+.about-content:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button1 {
+  padding: 10px 20px;
+  border: 2px solid teal;
+  color: rgb(0, 0, 0);
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-button1:hover {
+  background-color: #2d00a0;
+  color: #f9f9f9;
+}
+
+/* Container for the row Our mission -------------------------- Our Vision --------------- Core Values ---------------------->*/
+.row {
+  display: flex;
+  justify-content: space-around; /* Space between cards */
+  align-items: stretch; /* Ensures all cards are equal height */
+  flex-wrap: wrap; /* Makes it responsive */
+  gap: 1.5rem; /* Adds spacing between cards */
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+/* General Card Styling */
+.card {
+  flex: 1; /* Ensures cards take equal space */
+  max-width: 30%; /* Ensures the row doesn't stretch too much */
+  min-width: 250px; /* Minimum card size for responsiveness */
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Card Hover Effect */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Specific Backgrounds */
+.mission {
+  background: linear-gradient(135deg, #d00001 0%, #125a2f 100%);
+}
+
+.vision {
+  background:linear-gradient(135deg, #7b0486 0%, #000a32 100%);
+  color: #222;
+}
+
+.core-values {
+  background:linear-gradient(135deg, #000000 0%, #e6e196 100%);
+
+  color: #222;
+}
+
+/* Typography */
+.card h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.card p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #fff;
+}
+
+/* Decorative Icon */
+.icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card {
+      max-width: 100%; /* Stacks the cards vertically on smaller screens */
+  }
+}
+
+
+
+/* Team Section ---------------------------------------------- Our Team Section --------------------------------------------> */
+.team-section {
+  padding: 40px 20px;
+  background-color: #e8ffee;
+}
+
+.team-section h2 {
+  text-align: center;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.team-member {
+  text-align: center;
+  max-width: 250px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.team-member h3 {
+  margin: 10px 0 5px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.team-member p {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+
+/* Expertise Section  ------------------------------------------Extpertise Section------------------------------------------>*/
+.expertise-section {
+  padding: 40px 20px;
+  background-color: #f4f9f9;
+}
+
+.expertise-section h2 {
+  text-align: center;
+  color: #1abc9c;
+  margin-bottom: 30px;
+}
+
+.expertise-container { 
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.expertise-item {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.expertise-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.expertise-item h3 {
+  font-size: 1.5rem;
+  color: #1abc9c;
+  margin-bottom: 15px;
+}
+
+.expertise-item p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+/* General Styles  ---------------------------------------------------------------Software we Use------------------------------->*/
+.software-container {
+  padding: 50px 20px;
+  background-color: #ffe979;
+  text-align: center;
+}
+
+.software-header h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.software-header p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+
+/* Achievements Section ------------------------------------------------Acievement Section----------------------------------> */
+.achievements-section {
+  padding: 40px 20px;
+  background-color: #5e9ed2;
+  color: #fff;
+  text-align: center;
+}
+
+.achievements-section h2 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.achievements-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.achievement {
+  background: #fff;
+  color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.counter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; /* Adjust spacing between number and "+" */
+}
+
+.counter {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1abc9c;
+}
+
+.plus {
+  font-size: 2rem; /* Match the font size of the number */
+  font-weight: bold;
+  color: #1abc9c; /* Match the color of the number */
+}
+
+.achievement p {
+  font-size: 20px;
+  color: #0f0096;
+  font-weight: bold;
+}
+
+/* Responsive Design --------------------------------------------------------------Responsive Design----------------------------> */
+@media screen and (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+  }
+
+  .about-image, .about-content {
+    flex: 1 1 100%;
+  }
+
+  .team-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .expertise-container {
+    grid-template-columns: 1fr;
+  }
+}

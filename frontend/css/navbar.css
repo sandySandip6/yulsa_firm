@@ -1,0 +1,195 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 20px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10; /* Ensure navbar is above other elements */
+}
+
+/* Logo */
+.logo img {
+  max-width: 150px; /* Adjust the maximum width of the image */
+  height: auto; /* Maintain the aspect ratio */
+  display: block; /* Ensure the image doesn't overflow */
+  object-fit: contain; /* Fit the image within its container */
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-red {
+  color: rgb(88 1 1);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.logo-text h1 {
+  color: teal;
+  margin: -4px 6px;
+  font-size: 36px;
+}
+
+.logo-text p {
+  margin: 0;
+  font-size: 12px;
+  color: gray;
+}
+
+.trademark {
+  font-size: 10px;
+  vertical-align: super;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 100; /* Ensure it stays behind the hamburger */
+}
+
+.nav-links ul {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: teal;
+  border-bottom: 2px solid teal;
+}
+
+.nav-links a.active {
+  color: teal;
+  border-bottom: 2px solid teal;
+}
+
+/* Button */
+.cta-button {
+  padding: 10px 20px;
+  border: 2px solid teal;
+  color: rgb(0, 0, 0);
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: rgb(28, 16, 119);
+  color: rgb(255, 218, 33);
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  position: relative;
+  z-index: 200; /* Higher than the nav-links */
+}
+
+.hamburger .line {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 3px 0;
+  transition: all 0.3s;
+}
+
+.hamburger.open .line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger.open .line:nth-child(2) {
+  opacity: 0; /* Hide the middle line */
+}
+
+.hamburger.open .line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.hamburger.open {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 300; /* Ensures it's clickable above the nav-links */
+  cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+    position: fixed; /* Prevent overlapping */
+    top: 0;
+    left: 0;
+    height: 100%; /* Full-screen menu */
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 100; /* Lower than the hamburger button */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-links ul li {
+    margin: 10px 0;
+  }
+
+  .cta-button {
+    margin-top: 20px;
+  }
+  .logo img {
+    max-width: 100px; /* Adjust for smaller screens */
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .image-slideshow {
+    margin-top: 60px; /* Prevent content overlap with the navbar */
+  }
+}
