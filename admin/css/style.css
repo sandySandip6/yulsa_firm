@@ -41,7 +41,7 @@ body {
     box-shadow: var(--card-shadow);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content:start;
 }
 
 .brand {
@@ -213,6 +213,7 @@ body {
 .content-section {
     background: transparent;
     padding: 8px 0;
+    display: none;
 }
 
 .content-section.active {
@@ -380,7 +381,77 @@ body {
     .styled-table {
         min-width: 700px;
     }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 15px;
+        padding: 0 5px;
+    }
+    
+    .team-card img {
+        width: 80px;
+        height: 80px;
+    }
 }
+
+/* Team Section */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    padding: 0 10px;
+}
+
+.team-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+}
+
+.team-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#team-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#team-form input,
+#team-form button {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+#team-form button {
+    background: #3498db;
+    color: white;
+    cursor: pointer;
+}
+
+#team-form button:hover {
+    background: #2980b9;
+}
+
 
 /* Dark mode (toggled by JS adding .dark on body) */
 body.dark {

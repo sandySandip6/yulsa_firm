@@ -1,20 +1,19 @@
-<?php 
+<?php
 session_start();
 // If admin is not logged in, redirect to login page
 if (!isset($_SESSION['yadmin'])) {
-    header('Location: login.php');
-    exit();
+  header('Location: login.php');
+  exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="./css/style.css?v=1.1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="./css/style.css?v=1.3">
 </head>
 
 <body>
@@ -31,7 +30,8 @@ if (!isset($_SESSION['yadmin'])) {
 
       <nav class="nav">
         <a href="#" id="dashboard-link" class="nav-link active"><span>Dashboard</span></a>
-        <a href="#" id="users-link" class="nav-link"><span>Users</span></a>
+        <a href="#" id="users-link" class="nav-link"><span>Clients</span></a>
+        <a href="#" id="team-link" class="nav-link"><span>Team</span></a>
         <a href="logout.php" class="nav-link"><span>Logout</span></a>
       </nav>
 
@@ -42,6 +42,7 @@ if (!isset($_SESSION['yadmin'])) {
 
     <!-- MAIN -->
     <main class="main">
+      <!-- TOPBAR -->
       <header class="topbar">
         <div class="search-wrap">
           <input id="search-input" type="search" placeholder="Search by name, email or service..." />
@@ -59,6 +60,7 @@ if (!isset($_SESSION['yadmin'])) {
         </div>
       </header>
 
+      <!-- DASHBOARD -->
       <section id="dashboard-section" class="content-section active">
         <div class="cards">
           <div class="card">
@@ -81,6 +83,7 @@ if (!isset($_SESSION['yadmin'])) {
         </div>
       </section>
 
+      <!-- USERS -->
       <section id="users-section" class="content-section">
         <h1>Users</h1>
 
@@ -121,6 +124,24 @@ if (!isset($_SESSION['yadmin'])) {
           <div class="pagination" id="pagination-bottom"></div>
         </div>
       </section>
+
+      <!-- TEAM -->
+      <section id="team-section" class="content-section">
+        <h1>Team Members</h1>
+
+        <!-- Upload Form -->
+        <form id="team-form" enctype="multipart/form-data" method="POST">
+          <input type="text" name="name" placeholder="Name" required>
+          <input type="text" name="position" placeholder="Position" required>
+          <input type="file" name="image" accept="image/*" required>
+          <button type="submit">Add Member</button>
+        </form>
+
+        <!-- Team List -->
+        <div id="team-list" class="team-grid">
+          <!-- dynamically filled -->
+        </div>
+      </section>
     </main>
   </div>
 
@@ -135,8 +156,6 @@ if (!isset($_SESSION['yadmin'])) {
     </div>
   </div>
 
-      <script src="./js/script.js?v=1.1"></script>
+  <script src="./js/script.js?v=1.3"></script>
 </body>
-
-
 </html>
