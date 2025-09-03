@@ -13,5 +13,5 @@ if($conn->connect_error){
     // echo "Connected successfully !";
 }
 
-$base_url = '/ACCOUNTING_FIRM';
+$base_url = '';
 ?>
