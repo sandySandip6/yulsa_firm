@@ -13,7 +13,7 @@ if (!isset($_SESSION['yadmin'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="./css/style.css?v=1.4">
+  <link rel="stylesheet" href="./css/style.css?v=1.5">
 </head>
 
 <body>
@@ -32,7 +32,7 @@ if (!isset($_SESSION['yadmin'])) {
         <a href="#" id="dashboard-link" class="nav-link active"><span>Dashboard</span></a>
         <a href="#" id="users-link" class="nav-link"><span>Clients</span></a>
         <a href="#" id="team-link" class="nav-link"><span>Team</span></a>
-        <a href="logout.php" class="nav-link"><span>Logout</span></a>
+        <a href="logout.php" id="logout-link" class="nav-link"><span>Logout</span></a>
       </nav>
 
       <div class="sidebar-footer">
@@ -156,6 +156,56 @@ if (!isset($_SESSION['yadmin'])) {
     </div>
   </div>
 
-  <script src="./js/script.js?v=1.4"></script>
+  <!-- TEAM UPDATE MODAL -->
+  <div id="team-update-modal" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="modal-close" id="team-update-close">&times;</button>
+      <h2>Update Team Member</h2>
+      <form id="team-update-form" enctype="multipart/form-data">
+        <input type="hidden" id="update-member-id" name="id">
+        <input type="text" id="update-member-name" name="name" placeholder="Name" required>
+        <input type="text" id="update-member-position" name="position" placeholder="Position" required>
+        <div class="image-preview">
+          <img id="current-image-preview" src="" alt="Current image" style="max-width: 100px; max-height: 100px; border-radius: 50%; margin: 10px 0;">
+        </div>
+        <input type="file" id="update-member-image" name="image" accept="image/*">
+        <div class="modal-actions">
+          <button type="button" id="cancel-update" class="btn-cancel">Cancel</button>
+          <button type="submit" class="btn-save">Update Member</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TEAM DELETE CONFIRMATION MODAL -->
+  <div id="team-delete-modal" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="modal-close" id="team-delete-close">&times;</button>
+      <h2>Delete Team Member</h2>
+      <p>Are you sure you want to delete <strong id="delete-member-name"></strong>?</p>
+      <p class="warning-text">This action cannot be undone.</p>
+      <div class="modal-actions">
+        <button type="button" id="cancel-delete" class="btn-cancel">Cancel</button>
+        <button type="button" id="confirm-delete" class="btn-delete-confirm">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGOUT CONFIRMATION MODAL -->
+  <div id="logout-modal" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="modal-close" id="logout-close">&times;</button>
+      <div class="logout-icon">🚪</div>
+      <h2>Confirm Logout</h2>
+      <p>Are you sure you want to logout from the admin panel?</p>
+      <p class="warning-text">You will need to login again to access the admin dashboard.</p>
+      <div class="modal-actions">
+        <button type="button" id="cancel-logout" class="btn-cancel">Cancel</button>
+        <button type="button" id="confirm-logout" class="btn-logout-confirm">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/script.js?v=1.5"></script>
 </body>
 </html>

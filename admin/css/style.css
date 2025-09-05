@@ -227,6 +227,33 @@ body {
     padding: 12px;
     box-shadow: var(--card-shadow);
     overflow: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Mobile table wrapper */
+@media (max-width: 768px) {
+    .table-wrap {
+        padding: 8px;
+        border-radius: 8px;
+    }
+    
+    .table-wrap::-webkit-scrollbar {
+        height: 8px;
+    }
+    
+    .table-wrap::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+    }
+    
+    .table-wrap::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 4px;
+    }
+    
+    .table-wrap::-webkit-scrollbar-thumb:hover {
+        background: #a8a8a8;
+    }
 }
 
 .styled-table {
@@ -274,6 +301,28 @@ body {
     border: none;
     cursor: pointer;
     font-weight: 600;
+    touch-action: manipulation; /* Prevent double-tap zoom on mobile */
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+}
+
+/* Touch-friendly buttons */
+@media (max-width: 768px) {
+    .btn, .btn-edit, .btn-delete, .btn-cancel, .btn-save, .btn-delete-confirm, .btn-logout-confirm {
+        min-height: 44px; /* Minimum touch target size */
+        min-width: 44px;
+    }
+    
+    .nav-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .page-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
 }
 
 .btn-ghost {
@@ -349,11 +398,48 @@ body {
     cursor: pointer;
 }
 
-/* small screens */
-@media (max-width:900px) {
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .dashboard-layout {
+        padding: 15px;
+        gap: 20px;
+    }
+    
+    .sidebar {
+        width: 240px;
+    }
+    
+    .search-wrap input[type="search"] {
+        width: 350px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .dashboard-layout {
+        padding: 12px;
+        gap: 15px;
+    }
+    
+    .sidebar {
+        width: 220px;
+        padding: 18px;
+    }
+    
+    .search-wrap input[type="search"] {
+        width: 300px;
+    }
+    
+    .modal-panel {
+        width: 90%;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 900px) {
     .dashboard-layout {
         padding: 12px;
         flex-direction: column;
+        gap: 15px;
     }
 
     .sidebar {
@@ -364,33 +450,438 @@ body {
         gap: 12px;
         padding: 12px;
         border-radius: 10px;
+        order: 2;
     }
 
     .main {
-        margin-top: 10px;
+        order: 1;
+        margin-top: 0;
     }
 
-    .search-wrap input {
-        width: 220px;
+    .search-wrap {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+
+    .search-wrap input[type="search"] {
+        width: 100%;
+        max-width: none;
+    }
+
+    .topbar {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .topbar-right {
+        justify-content: space-between;
+        flex-wrap: wrap;
     }
 
     .cards {
         flex-direction: column;
+        gap: 10px;
     }
 
     .styled-table {
-        min-width: 700px;
+        min-width: 600px;
+        font-size: 14px;
     }
     
     .team-grid {
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 15px;
         padding: 0 5px;
     }
     
     .team-card img {
-        width: 80px;
-        height: 80px;
+        width: 90px;
+        height: 90px;
+    }
+
+    .team-actions {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .btn-edit, .btn-delete {
+        width: 100%;
+        padding: 8px 12px;
+    }
+
+    .modal-panel {
+        width: 95%;
+        max-width: 450px;
+        margin: 5% auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-layout {
+        padding: 8px;
+    }
+
+    .sidebar {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .brand h2 {
+        font-size: 16px;
+    }
+
+    .brand small {
+        font-size: 11px;
+    }
+
+    .nav {
+        gap: 4px;
+    }
+
+    .nav-link {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .search-wrap input[type="search"] {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .search-wrap button {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .stat-inline {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .stat-num {
+        font-size: 14px;
+    }
+
+    .card {
+        padding: 12px;
+    }
+
+    .card-title {
+        font-size: 12px;
+    }
+
+    .card-value {
+        font-size: 18px;
+    }
+
+    .styled-table {
+        min-width: 500px;
+        font-size: 12px;
+    }
+
+    .styled-table thead th,
+    .styled-table tbody td {
+        padding: 8px;
+    }
+
+    .table-controls {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+
+    .pagination {
+        justify-content: center;
+    }
+
+    .page-btn {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+    }
+    
+    .team-card {
+        padding: 12px;
+    }
+    
+    .team-card img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .team-card h3 {
+        font-size: 14px;
+        margin: 8px 0 4px 0;
+    }
+
+    .team-card p {
+        font-size: 12px;
+    }
+
+    #team-form {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #team-form input,
+    #team-form button {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .modal-panel {
+        width: 98%;
+        max-width: 400px;
+        margin: 2% auto;
+        padding: 15px;
+    }
+
+    .modal-header {
+        padding: 20px 15px;
+    }
+
+    .modal-header h2 {
+        font-size: 20px;
+    }
+
+    .modal-body {
+        padding: 20px 15px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+
+    .btn-cancel, .btn-save, .btn-delete-confirm, .btn-logout-confirm {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .modal-actions button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-layout {
+        padding: 5px;
+    }
+
+    .sidebar {
+        padding: 8px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .brand {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-link {
+        padding: 6px 8px;
+        font-size: 12px;
+        flex: 1;
+        min-width: 80px;
+        text-align: center;
+    }
+
+    .search-wrap input[type="search"] {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+
+    .search-wrap button {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+
+    .topbar-right {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .profile {
+        flex-direction: column;
+        gap: 4px;
+        text-align: center;
+    }
+
+    .avatar {
+        width: 30px;
+        height: 30px;
+    }
+
+    .username {
+        font-size: 12px;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    .card-title {
+        font-size: 11px;
+    }
+
+    .card-value {
+        font-size: 16px;
+    }
+
+    .styled-table {
+        min-width: 400px;
+        font-size: 11px;
+    }
+
+    .styled-table thead th,
+    .styled-table tbody td {
+        padding: 6px 4px;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 10px;
+    }
+    
+    .team-card {
+        padding: 8px;
+    }
+    
+    .team-card img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .team-card h3 {
+        font-size: 12px;
+        margin: 6px 0 3px 0;
+    }
+
+    .team-card p {
+        font-size: 10px;
+    }
+
+    .team-actions {
+        gap: 4px;
+    }
+
+    .btn-edit, .btn-delete {
+        padding: 6px 8px;
+        font-size: 10px;
+    }
+
+    .modal-panel {
+        width: 100%;
+        margin: 1% auto;
+        padding: 10px;
+        border-radius: 15px;
+    }
+
+    .modal-header {
+        padding: 15px 10px;
+    }
+
+    .modal-header h2 {
+        font-size: 18px;
+    }
+
+    .close-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 24px;
+    }
+
+    .modal-body {
+        padding: 15px 10px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .btn-cancel, .btn-save, .btn-delete-confirm, .btn-logout-confirm {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .logout-icon {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+
+    #logout-modal h2 {
+        font-size: 20px;
+    }
+
+    #logout-modal p {
+        font-size: 13px;
+    }
+}
+
+/* Landscape orientation for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .dashboard-layout {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        width: 200px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav {
+        flex-direction: column;
+    }
+
+    .main {
+        margin-top: 0;
+    }
+}
+
+/* Print styles */
+@media print {
+    .sidebar,
+    .topbar,
+    .modal,
+    .btn,
+    .team-actions {
+        display: none !important;
+    }
+
+    .dashboard-layout {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .main {
+        width: 100%;
+    }
+
+    .styled-table {
+        font-size: 12px;
     }
 }
 
@@ -450,6 +941,193 @@ body {
 
 #team-form button:hover {
     background: #2980b9;
+}
+
+/* Team Actions */
+.team-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.btn-edit, .btn-delete {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-edit {
+    background: #3498db;
+    color: white;
+}
+
+.btn-edit:hover {
+    background: #2980b9;
+}
+
+.btn-delete {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-delete:hover {
+    background: #c0392b;
+}
+
+/* Modal Actions */
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.btn-cancel, .btn-save, .btn-delete-confirm {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-cancel {
+    background: #95a5a6;
+    color: white;
+}
+
+.btn-cancel:hover {
+    background: #7f8c8d;
+}
+
+.btn-save {
+    background: #27ae60;
+    color: white;
+}
+
+.btn-save:hover {
+    background: #229954;
+}
+
+.btn-delete-confirm {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-delete-confirm:hover {
+    background: #c0392b;
+}
+
+/* Form styling in modals */
+#team-update-form input[type="text"],
+#team-update-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.image-preview {
+    text-align: center;
+}
+
+.warning-text {
+    color: #e74c3c;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+/* User Details Modal */
+.user-detail-item {
+    margin: 12px 0;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+.user-detail-item:last-child {
+    border-bottom: none;
+}
+
+.user-detail-item strong {
+    color: var(--accent);
+    display: inline-block;
+    min-width: 120px;
+    margin-right: 10px;
+}
+
+/* Logout Modal Styles */
+.logout-icon {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.btn-logout-confirm {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.btn-logout-confirm:hover {
+    background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+.btn-logout-confirm:active {
+    transform: translateY(0);
+}
+
+#logout-modal .modal-panel {
+    text-align: center;
+    max-width: 400px;
+}
+
+#logout-modal h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+#logout-modal p {
+    color: #7f8c8d;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+#logout-modal .warning-text {
+    color: #e74c3c;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 
