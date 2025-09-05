@@ -34,10 +34,10 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Navbar with Modal</title>
-    <link rel="stylesheet" href="frontend/css/navbar.css?v=1.0">
-    <link rel="stylesheet" href="frontend/css/collab-modal.css?v=1.0">
-    <link rel="stylesheet" href="../css/navbar.css?v=1.0">
-    <link rel="stylesheet" href="../css/collab-modal.css?v=1.0">
+    <link rel="stylesheet" href="frontend/css/navbar.css?v=1.1">
+    <link rel="stylesheet" href="frontend/css/collab-modal.css?v=1.1">
+    <link rel="stylesheet" href="../css/navbar.css?v=1.2">
+    <link rel="stylesheet" href="../css/collab-modal.css?v=1.1">
     <!-- <link rel="stylesheet" href="frontend/javascript/collab-success.js?v=1.0"> -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
@@ -167,11 +167,33 @@ $conn->close();
         function toggleOtherService() {
             const checkbox = document.getElementById('other-service-checkbox');
             const otherServiceGroup = document.getElementById('other-service-group');
+            const otherServiceInput = document.getElementById('other-service');
+            
             if (checkbox.checked) {
+                // Show the other service input field
                 otherServiceGroup.classList.remove('hidden');
+                otherServiceInput.focus(); // Focus on the input field
+                otherServiceInput.required = true; // Make it required
+                
+                // Add smooth animation
+                otherServiceGroup.style.opacity = '0';
+                otherServiceGroup.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    otherServiceGroup.style.transition = 'all 0.3s ease';
+                    otherServiceGroup.style.opacity = '1';
+                    otherServiceGroup.style.transform = 'translateY(0)';
+                }, 10);
             } else {
-                otherServiceGroup.classList.add('hidden');
-                document.getElementById('other-service').value = ''; // Clear the input field
+                // Hide the other service input field
+                otherServiceGroup.style.transition = 'all 0.3s ease';
+                otherServiceGroup.style.opacity = '0';
+                otherServiceGroup.style.transform = 'translateY(-10px)';
+                
+                setTimeout(() => {
+                    otherServiceGroup.classList.add('hidden');
+                    otherServiceInput.value = ''; // Clear the input field
+                    otherServiceInput.required = false; // Make it not required
+                }, 300);
             }
         }
     </script>
