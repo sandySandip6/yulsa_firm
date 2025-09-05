@@ -91,26 +91,24 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(err => console.error("Error loading team:", err));
   }
 
-  if (teamForm) {
-    teamForm.addEventListener("submit", e => {
-      e.preventDefault();
-      const formData = new FormData(teamForm);
-      fetch("add-team.php", {
-        method: "POST",
-        body: formData
+  teamForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const formData = new FormData(teamForm);
+    fetch("team-upload.php", {
+      method: "POST",
+      body: formData
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (result.success) {
+          teamForm.reset();
+          loadTeam();
+        } else {
+          alert(result.error || "Failed to add member");
+        }
       })
-        .then(res => res.json())
-        .then(result => {
-          if (result.success) {
-            teamForm.reset();
-            loadTeam();
-          } else {
-            alert(result.error || "Failed to add member");
-          }
-        })
-        .catch(err => console.error("Error adding team member:", err));
-    });
-  }
+      .catch(err => console.error("Error adding team member:", err));
+  });
 
   loadTeam();
 });

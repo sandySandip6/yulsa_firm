@@ -13,7 +13,7 @@ if (!isset($_SESSION['yadmin'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="./css/style.css?v=1.3">
+  <link rel="stylesheet" href="./css/style.css?v=1.4">
 </head>
 
 <body>
@@ -85,7 +85,7 @@ if (!isset($_SESSION['yadmin'])) {
 
       <!-- USERS -->
       <section id="users-section" class="content-section">
-        <h1>Users</h1>
+        <h1>Clients</h1>
 
         <div class="table-controls">
           <div>
@@ -101,7 +101,7 @@ if (!isset($_SESSION['yadmin'])) {
         </div>
 
         <div class="table-wrap">
-          <table id="users-table" class="styled-table">
+          <table id="users-table" class="styled-table"> 
             <thead>
               <tr>
                 <th data-key="id" class="sortable">ID</th>
@@ -156,6 +156,6 @@ if (!isset($_SESSION['yadmin'])) {
     </div>
   </div>
 
-  <script src="./js/script.js?v=1.3"></script>
+  <script src="./js/script.js?v=1.4"></script>
 </body>
 </html>
