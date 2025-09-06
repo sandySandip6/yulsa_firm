@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Allow all search engines to crawl the entire site
+Disallow: /admin/
+Disallow: /frontend/header_footer/
+Disallow: /frontend/css/
+Disallow: /frontend/javascript/
+Disallow: /frontend/images/
+Disallow: /*.log
+Disallow: /config/
+Disallow: /includes/
+
+# Sitemap location
+Sitemap: https://teamyulsa.com/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1

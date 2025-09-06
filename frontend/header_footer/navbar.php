@@ -1,5 +1,8 @@
 <?php
-// db_config.php is included in the main page, so we don't need to include it here
+// Include db_config.php to get database connection and base_url
+if (!isset($conn)) {
+    include_once(__DIR__ . '/../../db_config.php');
+}
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] === "POST") {

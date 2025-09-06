@@ -1,9 +1,12 @@
 <?php 
 
 $server = "localhost";
-$username = "sandiipc_t_yulsa";
-$password = "TeamYulsa@123";
-$dbname = "sandiipc_acc_firm";
+$username = "root";
+$password = "";
+$dbname = "acc_firm";
+// $username = "sandiipc_t_yulsa";
+// $password = "TeamYulsa@123";
+// $dbname = "sandiipc_acc_firm";
 
 $conn = new mysqli($server, $username, $password, $dbname);
 
@@ -13,5 +16,5 @@ if($conn->connect_error){
     // echo "Connected successfully !";
 }
 
-$base_url = '';
+$base_url = '/ACCOUNTING_FIRM';
 ?>

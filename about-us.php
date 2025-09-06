@@ -3,14 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Team Yulsa</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>About Team Yulsa - Professional Accounting Firm | Our Mission, Vision & Expert Team</title>
+    <meta name="title" content="About Team Yulsa - Professional Accounting Firm | Our Mission, Vision & Expert Team">
+    <meta name="description" content="Learn about Team Yulsa, a leading accounting firm specializing in bookkeeping, tax filing, financial reporting, and virtual CFO services. Meet our expert team and discover our mission to empower businesses.">
+    <meta name="keywords" content="about team yulsa, accounting firm team, professional accountants, financial advisors, bookkeeping experts, tax specialists, virtual CFO, business consulting, Nepal accounting team">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="author" content="Team Yulsa">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://teamyulsa.com/about-us.php">
+    <meta property="og:title" content="About Team Yulsa - Professional Accounting Firm">
+    <meta property="og:description" content="Learn about Team Yulsa, a leading accounting firm with expert professionals specializing in comprehensive financial services for businesses worldwide.">
+    <meta property="og:image" content="https://teamyulsa.com/frontend/images/about-og-image.jpg">
+    <meta property="og:site_name" content="Team Yulsa">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://teamyulsa.com/about-us.php">
+    <meta property="twitter:title" content="About Team Yulsa - Professional Accounting Firm">
+    <meta property="twitter:description" content="Learn about Team Yulsa, a leading accounting firm with expert professionals specializing in comprehensive financial services.">
+    <meta property="twitter:image" content="https://teamyulsa.com/frontend/images/about-og-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://teamyulsa.com/about-us.php">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/frontend/images/favicon.ico">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
+    <!-- Schema.org structured data for About Page -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About Team Yulsa",
+        "description": "Learn about Team Yulsa's mission, vision, and expert team of accounting professionals.",
+        "url": "https://teamyulsa.com/about-us.php",
+        "mainEntity": {
+            "@type": "AccountingService",
+            "name": "Team Yulsa",
+            "description": "Professional accounting and financial services firm specializing in bookkeeping, tax filing, and virtual CFO services.",
+            "foundingDate": "2019",
+            "numberOfEmployees": "10-50",
+            "slogan": "Empowering businesses with cutting-edge solutions"
+        }
+    }
+    </script>
+    
     <link rel="stylesheet" href="frontend/css/about-us.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 <?php
-include_once("frontend/header_footer/navbar.php");
 include_once("db_config.php");
+include_once("frontend/header_footer/navbar.php");
 
 // Fetch team data from database
 $query = "SELECT * FROM team ORDER BY created_at DESC";
@@ -29,12 +82,12 @@ if ($result && $result->num_rows > 0) {
     <div class="about-container">
         <!-- Image Section -->
         <div class="about-image">
-            <img src="frontend/images/about_img/office_img.jpg" alt="Our Team">
+            <img src="frontend/images/about_img/office_img.jpg" alt="Team Yulsa Professional Accounting Office - Modern workspace for financial services">
         </div>
 
         <!-- Content Section -->
         <div class="about-content">
-            <h2>About Us</h2>
+            <h1>About Team Yulsa - Professional Accounting & Financial Services</h1>
             <p>
                 At <strong>Yulsa Advisor Pvt. Ltd.</strong>, we believe in transforming businesses through innovative
                 solutions and
@@ -85,7 +138,7 @@ if ($result && $result->num_rows > 0) {
 
 <!--------------------------------------------------------------Our Team Section ------------------------------------------------------>
 <section class="team-section">
-    <h2>Meet Our Team</h2>
+    <h2>Meet Our Expert Accounting Team</h2>
     <div class="team-container">
         <?php if (!empty($team_members)): ?>
             <?php foreach ($team_members as $member): ?>
@@ -94,16 +147,16 @@ if ($result && $result->num_rows > 0) {
                     // Set image path - use database image if available, otherwise use default
                     $image_path = !empty($member['image']) ? "admin/uploads/team/" . $member['image'] : "frontend/images/team_photos/default.png";
                     ?>
-                    <img src="<?php echo $image_path; ?>" alt="<?php echo htmlspecialchars($member['name']); ?>">
+                    <img src="<?php echo $image_path; ?>" alt="<?php echo htmlspecialchars($member['name']); ?> - Professional Accountant at Team Yulsa">
                     <h3><?php echo htmlspecialchars($member['name']); ?></h3>
                     <p><?php echo htmlspecialchars($member['position']); ?></p>
                 </div>
             <?php endforeach; ?>
         <?php else: ?> 
             <div class="team-member">
-                <img src="frontend/images/team_photos/default.png" alt="No team members">
-                <h3>No team members found</h3>
-                <p>Please add team members through the admin panel</p> 
+                <img src="frontend/images/team_photos/default.png" alt="Team Yulsa Professional Accountants - Coming Soon">
+                <h3>Professional Team Coming Soon</h3>
+                <p>Our expert accounting team will be featured here soon</p> 
             </div>
         <?php endif; ?> 
     </div>
