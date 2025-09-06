@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Team Yulsa</title>
+    <link rel="stylesheet" href="frontend/css/about-us.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
 <?php
 include_once("frontend/header_footer/navbar.php");
 include_once("db_config.php");
@@ -13,8 +23,6 @@ if ($result && $result->num_rows > 0) {
     }
 }
 ?>
-<link rel="stylesheet" href="frontend/css/about-us.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
 <!--------------------------------------------------------------About Us Section ------------------------------------------------------>
 <section class="about-us" id="about-us">
@@ -139,4 +147,6 @@ if ($result && $result->num_rows > 0) {
 include_once("frontend/header_footer/footer.php");
 ?>
 <script src="frontend/javascript/counter_animation.js"></script>
+</body>
+</html>
 
