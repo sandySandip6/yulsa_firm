@@ -145,6 +145,9 @@ if ($result && $result->num_rows > 0) {
 
 <?php
 include_once("frontend/header_footer/footer.php");
+
+// Close database connection
+$conn->close();
 ?>
 <script src="frontend/javascript/counter_animation.js"></script>
 </body>

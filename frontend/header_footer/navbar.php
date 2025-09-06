@@ -1,6 +1,5 @@
 <?php
-
-include 'db_config.php';
+// db_config.php is included in the main page, so we don't need to include it here
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -23,9 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "<script>alert('There was an error submitting your form. Please try again.'); window.location.href='index.php';</script>";
     }
 }
-
-// Close connection
-$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
