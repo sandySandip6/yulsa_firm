@@ -1,4 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Professional Accounting & Financial Services | Team Yulsa</title>
+    <meta name="description" content="Comprehensive accounting services including bookkeeping, tax filing, financial reporting, virtual CFO services, and process automation. Expert financial solutions for your business.">
+    <meta name="keywords" content="accounting services, bookkeeping services, tax filing, financial reporting, virtual CFO, process automation, business accounting, Nepal accounting services">
+    <link rel="canonical" href="https://teamyulsa.com/services.php">
+    <link rel="icon" type="image/x-icon" href="/frontend/images/favicon.ico">
+</head>
+<body>
 <?php
+include_once("db_config.php");
 include_once("frontend/header_footer/navbar.php");
 ?>
 <link rel="stylesheet" href="frontend/css/services.css">
@@ -219,4 +232,9 @@ include_once("frontend/header_footer/navbar.php");
 
 <?php
 include_once("frontend/header_footer/footer.php");
+
+// Close database connection
+$conn->close();
 ?>
+</body>
+</html>

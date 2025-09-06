@@ -26,22 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Navbar with Modal</title>
-    <link rel="stylesheet" href="frontend/css/navbar.css?v=1.1">
-    <link rel="stylesheet" href="frontend/css/collab-modal.css?v=1.1">
-    <link rel="stylesheet" href="../css/navbar.css?v=1.2">
-    <link rel="stylesheet" href="../css/collab-modal.css?v=1.1">
-    <!-- <link rel="stylesheet" href="frontend/javascript/collab-success.js?v=1.0"> -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-</head>
-
-<body>
+<!-- Navbar CSS -->
+<link rel="stylesheet" href="frontend/css/navbar.css?v=1.1">
+<link rel="stylesheet" href="frontend/css/collab-modal.css?v=1.1">
+<link rel="stylesheet" href="../css/navbar.css?v=1.2">
+<link rel="stylesheet" href="../css/collab-modal.css?v=1.1">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <nav class="navbar">
         <div class="logo"><a href="<?= $base_url ?>/index.php">
                 <span class="logo-red">Team</span>
@@ -201,8 +192,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             display: none;
         }
     </style>
-
-    </style>
-</body>
-
-</html>

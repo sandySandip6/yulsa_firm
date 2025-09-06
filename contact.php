@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Team Yulsa | Professional Accounting Services</title>
+    <meta name="description" content="Get in touch with Team Yulsa for professional accounting services. Contact our expert team for bookkeeping, tax filing, and financial consulting solutions.">
+    <meta name="keywords" content="contact team yulsa, accounting services contact, bookkeeping consultation, tax filing help, financial consulting contact">
+    <link rel="canonical" href="https://teamyulsa.com/contact.php">
+    <link rel="icon" type="image/x-icon" href="/frontend/images/favicon.ico">
+</head>
+<body>
 <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -115,6 +127,9 @@ include_once("frontend/header_footer/navbar.php");
 
 <?php
 include_once("frontend/header_footer/footer.php");
+
+// Close database connection
+$conn->close();
 ?>
 
 <!--Script for form submission-->
@@ -124,3 +139,5 @@ include_once("frontend/header_footer/footer.php");
         // The PHP will handle the form submission and show appropriate messages
     });
 </script>
+</body>
+</html>
