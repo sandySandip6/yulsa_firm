@@ -1,7 +1,8 @@
   <?php
-
-    include('db_config.php')
-
+    // Include db_config.php to get base_url variable
+    if (!isset($base_url)) {
+        include_once(__DIR__ . '/../../db_config.php');
+    }
     ?>
 
   <link rel="stylesheet" href="frontend/css/footer.css?v=1.0">

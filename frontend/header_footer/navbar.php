@@ -1,6 +1,8 @@
 <?php
-
-include 'db_config.php';
+// Include db_config.php to get database connection and base_url
+if (!isset($conn)) {
+    include_once(__DIR__ . '/../../db_config.php');
+}
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -23,9 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "<script>alert('There was an error submitting your form. Please try again.'); window.location.href='index.php';</script>";
     }
 }
-
-// Close connection
-$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
