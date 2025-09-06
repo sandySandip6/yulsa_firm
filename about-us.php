@@ -1,5 +1,17 @@
 <?php
 include_once("frontend/header_footer/navbar.php");
+include_once("db_config.php");
+
+// Fetch team data from database
+$query = "SELECT * FROM team ORDER BY created_at DESC";
+$result = $conn->query($query);
+
+$team_members = [];
+if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $team_members[] = $row;
+    }
+}
 ?>
 <link rel="stylesheet" href="frontend/css/about-us.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -67,45 +79,29 @@ include_once("frontend/header_footer/navbar.php");
 <section class="team-section">
     <h2>Meet Our Team</h2>
     <div class="team-container">
-        <div class="team-member">
-            <img src="frontend/images/team_photos/CA Sagun Jung Rana.png" alt="Sagun Jung Rana">
-            <h3>CA. Sagun Jung Rana</h3>
-            <p>Founder</p>
-        </div>
-        <div class="team-member">
-            <img src="frontend/images/team_photos/ManojLuitel.png" alt="Manoj Luitel">
-            <h3>Manoj Luitel</h3>
-            <p>Accounting Head</p>
-        </div>
-        <div class="team-member">
-            <img src="frontend/images/team_photos/Prabesh Bhusal.png" alt="Prabesh Bhusal">
-            <h3>Prabesh Bhusal</h3>
-            <p>Senior Accountant</p>
-        </div>
-        <div class="team-member">
-            <img src="frontend/images/team_photos/Sarjan Jung Rana.png" alt="Sarjan Jung Rana">
-            <h3>Sarjan Jung Rana</h3>
-            <p>Local Taxes Manager</p>
-        </div>
-        <div class="team-member">
-            <img src="frontend/images/team_photos/Anubhav Kumar Mahato.png" alt="Anubhav Kumal Mahato">
-            <h3>Anubhav Kumar Mahato</h3>
-            <p>Senior Accountant</p>
-        </div>
-        <div class="team-member">
-            <img src="frontend/images/team_photos/Nisha Khanal.jpg" alt="Nisha Khanal">
-            <h3>Nisha Khanal</h3>
-            <p>Financial Reporting Consultant</p>
-        </div>
-        <div class="team-member">
-            <img src="frontend/images/team_photos/bhakta_photo.png" alt="Samrat Hamal">
-            <h3>Samrat Hamal</h3>
-            <p>IT Specialist</p>
-        </div>
+        <?php if (!empty($team_members)): ?>
+            <?php foreach ($team_members as $member): ?>
+                <div class="team-member">
+                    <?php 
+                    // Set image path - use database image if available, otherwise use default
+                    $image_path = !empty($member['image']) ? "admin/uploads/team/" . $member['image'] : "frontend/images/team_photos/default.png";
+                    ?>
+                    <img src="<?php echo $image_path; ?>" alt="<?php echo htmlspecialchars($member['name']); ?>">
+                    <h3><?php echo htmlspecialchars($member['name']); ?></h3>
+                    <p><?php echo htmlspecialchars($member['position']); ?></p>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?> 
+            <div class="team-member">
+                <img src="frontend/images/team_photos/default.png" alt="No team members">
+                <h3>No team members found</h3>
+                <p>Please add team members through the admin panel</p> 
+            </div>
+        <?php endif; ?> 
     </div>
 </section>
 
-<!--------------------------------------------------------------Our Achievements Section ------------------------------------------------------>
+<!-----------------------------------------Our Achievements Section ------------------------------------------------------>
 <section class="achievements-section">
     <h2>Our Achievements</h2>
     <div class="achievements-container">
