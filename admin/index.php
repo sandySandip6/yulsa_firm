@@ -21,7 +21,7 @@ if (!isset($_SESSION['yadmin'])) {
     <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="brand">
-        <img src="./img/logo-placeholder.svg" alt="logo" class="brand-logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/9703/9703596.png" alt="logo" class="brand-logo">
         <div>
           <h2>Admin Panel</h2>
           <small>Manage Collaborations</small>
@@ -32,6 +32,7 @@ if (!isset($_SESSION['yadmin'])) {
         <a href="#" id="dashboard-link" class="nav-link active"><span>Dashboard</span></a>
         <a href="#" id="users-link" class="nav-link"><span>Clients</span></a>
         <a href="#" id="team-link" class="nav-link"><span>Team</span></a>
+        <a href="#" id="contact-link" class="nav-link"><span>Contact Messages</span></a>
         <a href="logout.php" id="logout-link" class="nav-link"><span>Logout</span></a>
       </nav>
 
@@ -54,7 +55,7 @@ if (!isset($_SESSION['yadmin'])) {
             <div>Total users <div id="total-users" class="stat-num">0</div></div>
           </div>
           <div class="profile">
-            <img src="./img/user-placeholder.png" alt="admin" class="avatar">
+            <img src="https://cdn-icons-png.flaticon.com/512/9703/9703596.png" alt="admin" class="avatar">
             <span class="username">Admin</span>
           </div>
         </div>
@@ -142,6 +143,47 @@ if (!isset($_SESSION['yadmin'])) {
           <!-- dynamically filled -->
         </div>
       </section>
+
+      <!-- CONTACT MESSAGES -->
+      <section id="contact-section" class="content-section">
+        <h1>Contact Messages</h1>
+
+        <div class="table-controls">
+          <div>
+            <label>Rows:
+              <select id="contact-rows-per-page">
+                <option>5</option>
+                <option selected>10</option>
+                <option>20</option>
+              </select>
+            </label>
+          </div>
+          <div class="pagination" id="contact-pagination"></div>
+        </div>
+
+        <div class="table-wrap">
+          <table id="contact-table" class="styled-table"> 
+            <thead>
+              <tr>
+                <th data-key="id" class="sortable">ID</th>
+                <th data-key="name" class="sortable">Name</th>
+                <th data-key="email" class="sortable">Email</th>
+                <th data-key="message">Message</th>
+
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- rows inserted by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-controls bottom-controls">
+          <div id="contact-table-status" class="table-status"></div>
+          <div class="pagination" id="contact-pagination-bottom"></div>
+        </div>
+      </section>
     </main>
   </div>
 
@@ -187,6 +229,31 @@ if (!isset($_SESSION['yadmin'])) {
       <div class="modal-actions">
         <button type="button" id="cancel-delete" class="btn-cancel">Cancel</button>
         <button type="button" id="confirm-delete" class="btn-delete-confirm">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT MESSAGE DETAILS MODAL -->
+  <div id="contact-modal" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="modal-close" id="contact-modal-close">&times;</button>
+      <h2>Contact Message Details</h2>
+      <div id="contact-details">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT MESSAGE DELETE CONFIRMATION MODAL -->
+  <div id="contact-delete-modal" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="modal-close" id="contact-delete-close">&times;</button>
+      <h2>Delete Contact Message</h2>
+      <p>Are you sure you want to delete this contact message?</p>
+      <p class="warning-text">This action cannot be undone.</p>
+      <div class="modal-actions">
+        <button type="button" id="cancel-contact-delete" class="btn-cancel">Cancel</button>
+        <button type="button" id="confirm-contact-delete" class="btn-delete-confirm">Delete</button>
       </div>
     </div>
   </div>

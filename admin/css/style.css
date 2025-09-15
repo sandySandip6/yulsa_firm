@@ -295,7 +295,7 @@ body {
 }
 
 /* Actions */
-.btn {
+.btn, .contact-view-btn {
     padding: 8px 10px;
     border-radius: 8px;
     border: none;
@@ -305,9 +305,19 @@ body {
     -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
 }
 
+.contact-view-btn {
+    background: var(--accent);
+    color: white;
+    margin-right: 8px;
+}
+
+.contact-view-btn:hover {
+    background: #4338ca;
+}
+
 /* Touch-friendly buttons */
 @media (max-width: 768px) {
-    .btn, .btn-edit, .btn-delete, .btn-cancel, .btn-save, .btn-delete-confirm, .btn-logout-confirm {
+    .btn, .btn-edit, .btn-delete, .btn-cancel, .btn-save, .btn-delete-confirm, .btn-logout-confirm, .contact-view-btn {
         min-height: 44px; /* Minimum touch target size */
         min-width: 44px;
     }
