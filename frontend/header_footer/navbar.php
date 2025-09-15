@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <div class="modal-body">
                 <!-- <div id="success-message" class="hidden">Thanks for Collaboration!</div> -->
-                <form id="collaborateForm" action="index.php" method="POST">
+                <form id="collaborateForm" action="process-form.php" method="POST">
                     <div class="form-group">
                         <label for="name">Full Name</label>
                         <input type="text" id="name" name="name" placeholder="Enter your full name" required>
@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <div>
                             <label><input type="checkbox" name="services[]" value="Accounting Software Migration"> Accounting Software Migration</label>
                         </div>
-                        <div>
+                        <div
                             <label><input type="checkbox" name="services[]" value="Management Reporting"> Management Reporting</label>
                         </div>
                         <div>
@@ -192,3 +192,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             display: none;
         }
     </style>
+    
+    <!-- Include the collaborate form JavaScript -->
+    <script src="frontend/javascript/collab_success.js"></script>
