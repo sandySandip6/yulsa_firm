@@ -93,9 +93,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const userDetails = document.getElementById("user-details");
   const modalClose = document.getElementById("modal-close");
 
-  // Event listener for view buttons
+  // Event listener for view buttons (users only)
   document.addEventListener("click", (e) => {
-    if (e.target.classList.contains("view-btn")) {
+    if (e.target.classList.contains("view-btn") && !e.target.getAttribute("data-type")) {
       const userId = e.target.getAttribute("data-id");
       viewUserDetails(userId);
     }
@@ -354,6 +354,216 @@ document.addEventListener("DOMContentLoaded", () => {
   logoutModal.addEventListener("click", (e) => {
     if (e.target === logoutModal) {
       hideLogoutModal();
+    }
+  });
+
+  // ======================
+  // CONTACT MESSAGES SECTION
+  // ======================
+  const contactTableBody = document.querySelector("#contact-table tbody");
+  const contactRowsPerPage = document.getElementById("contact-rows-per-page");
+  const contactPagination = document.getElementById("contact-pagination");
+  const contactPaginationBottom = document.getElementById("contact-pagination-bottom");
+  const contactTableStatus = document.getElementById("contact-table-status");
+  const searchInput = document.getElementById("search-input");
+
+  let currentContactPage = 1;
+  let contactData = [];
+  let contactTotalPages = 1;
+
+  function loadContactMessages(page = 1, limit = 10, search = '') {
+    const params = new URLSearchParams({
+      page: page,
+      limit: limit,
+      search: search
+    });
+
+    fetch(`fetch-contact.php?${params}`)
+      .then(res => res.json())
+      .then(data => {
+        contactData = data.contacts;
+        contactTotalPages = data.pagination.total_pages;
+        currentContactPage = data.pagination.current_page;
+        
+        renderContactTable();
+        renderContactPagination();
+        updateContactTableStatus(data.pagination);
+      })
+      .catch(err => console.error("Error loading contact messages:", err));
+  }
+
+  function renderContactTable() {
+    contactTableBody.innerHTML = "";
+    
+    contactData.forEach(contact => {
+      const tr = document.createElement("tr");
+      const messagePreview = contact.message.length > 50 ? 
+        contact.message.substring(0, 50) + "..." : contact.message;
+      
+      tr.innerHTML = `
+        <td>${contact.id}</td>
+        <td>${contact.name}</td>
+        <td>${contact.email}</td>
+        <td title="${contact.message}">${messagePreview}</td>
+        <td>
+          <button class="contact-view-btn" data-id="${contact.id}">View</button>
+          <button class="btn-delete" data-id="${contact.id}" data-type="contact">Delete</button>
+        </td>
+      `;
+      contactTableBody.appendChild(tr);
+    });
+  }
+
+  function renderContactPagination() {
+    const paginationHTML = generatePaginationHTML(currentContactPage, contactTotalPages, 'contact');
+    contactPagination.innerHTML = paginationHTML;
+    contactPaginationBottom.innerHTML = paginationHTML;
+  }
+
+  function generatePaginationHTML(currentPage, totalPages, type) {
+    let html = '';
+    
+    // Previous button
+    if (currentPage > 1) {
+      html += `<button onclick="loadContactMessages(${currentPage - 1}, ${contactRowsPerPage.value}, '${searchInput.value}')">Previous</button>`;
+    }
+    
+    // Page numbers
+    const startPage = Math.max(1, currentPage - 2);
+    const endPage = Math.min(totalPages, currentPage + 2);
+    
+    for (let i = startPage; i <= endPage; i++) {
+      const activeClass = i === currentPage ? 'active' : '';
+      html += `<button class="${activeClass}" onclick="loadContactMessages(${i}, ${contactRowsPerPage.value}, '${searchInput.value}')">${i}</button>`;
+    }
+    
+    // Next button
+    if (currentPage < totalPages) {
+      html += `<button onclick="loadContactMessages(${currentPage + 1}, ${contactRowsPerPage.value}, '${searchInput.value}')">Next</button>`;
+    }
+    
+    return html;
+  }
+
+  function updateContactTableStatus(pagination) {
+    const start = ((pagination.current_page - 1) * pagination.limit) + 1;
+    const end = Math.min(pagination.current_page * pagination.limit, pagination.total_records);
+    contactTableStatus.textContent = `Showing ${start}-${end} of ${pagination.total_records} contact messages`;
+  }
+
+  // Event listeners for contact messages
+  contactRowsPerPage.addEventListener("change", () => {
+    loadContactMessages(1, contactRowsPerPage.value, searchInput.value);
+  });
+
+  // Search functionality for contact messages
+  searchInput.addEventListener("input", (e) => {
+    const searchTerm = e.target.value;
+    loadContactMessages(1, contactRowsPerPage.value, searchTerm);
+  });
+
+  // Load contact messages when contact section is active
+  document.getElementById("contact-link").addEventListener("click", () => {
+    loadContactMessages();
+  });
+
+  // ======================
+  // CONTACT MESSAGE MODAL FUNCTIONALITY
+  // ======================
+  const contactModal = document.getElementById("contact-modal");
+  const contactDetails = document.getElementById("contact-details");
+  const contactModalClose = document.getElementById("contact-modal-close");
+  const contactDeleteModal = document.getElementById("contact-delete-modal");
+  const contactDeleteClose = document.getElementById("contact-delete-close");
+  const cancelContactDelete = document.getElementById("cancel-contact-delete");
+  const confirmContactDelete = document.getElementById("confirm-contact-delete");
+
+  let contactToDelete = null;
+
+  // Event listeners for contact message actions
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("contact-view-btn")) {
+      const contactId = e.target.getAttribute("data-id");
+      viewContactDetails(contactId);
+    }
+    
+    if (e.target.classList.contains("btn-delete") && e.target.getAttribute("data-type") === "contact") {
+      const contactId = e.target.getAttribute("data-id");
+      contactToDelete = contactId;
+      contactDeleteModal.setAttribute("aria-hidden", "false");
+    }
+  });
+
+  function viewContactDetails(contactId) {
+    const contact = contactData.find(c => c.id == contactId);
+    if (contact) {
+      contactDetails.innerHTML = `
+        <div class="contact-detail-item">
+          <strong>ID:</strong> ${contact.id}
+        </div>
+        <div class="contact-detail-item">
+          <strong>Name:</strong> ${contact.name}
+        </div>
+        <div class="contact-detail-item">
+          <strong>Email:</strong> <a href="mailto:${contact.email}">${contact.email}</a>
+        </div>
+        <div class="contact-detail-item">
+          <strong>Message:</strong>
+          <div style="margin-top: 10px; padding: 10px; background: #f5f5f5; border-radius: 5px; white-space: pre-wrap;">${contact.message}</div>
+        </div>
+      `;
+      contactModal.setAttribute("aria-hidden", "false");
+    }
+  }
+
+  // Close contact modal
+  contactModalClose.addEventListener("click", () => {
+    contactModal.setAttribute("aria-hidden", "true");
+  });
+
+  // Close contact delete modal
+  contactDeleteClose.addEventListener("click", () => {
+    contactDeleteModal.setAttribute("aria-hidden", "true");
+  });
+
+  cancelContactDelete.addEventListener("click", () => {
+    contactDeleteModal.setAttribute("aria-hidden", "true");
+  });
+
+  // Handle contact delete confirmation
+  confirmContactDelete.addEventListener("click", () => {
+    if (contactToDelete) {
+      const formData = new FormData();
+      formData.append("id", contactToDelete);
+      
+      fetch("delete-contact.php", {
+        method: "POST",
+        body: formData
+      })
+        .then(res => res.json())
+        .then(result => {
+          if (result.success) {
+            contactDeleteModal.setAttribute("aria-hidden", "true");
+            loadContactMessages(currentContactPage, contactRowsPerPage.value, searchInput.value);
+            alert("Contact message deleted successfully!");
+          } else {
+            alert(result.message || "Failed to delete contact message");
+          }
+        })
+        .catch(err => console.error("Error deleting contact message:", err));
+    }
+  });
+
+  // Close modals when clicking outside
+  contactModal.addEventListener("click", (e) => {
+    if (e.target === contactModal) {
+      contactModal.setAttribute("aria-hidden", "true");
+    }
+  });
+
+  contactDeleteModal.addEventListener("click", (e) => {
+    if (e.target === contactDeleteModal) {
+      contactDeleteModal.setAttribute("aria-hidden", "true");
     }
   });
 });
